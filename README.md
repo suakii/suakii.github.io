@@ -1,222 +1,166 @@
-# plainwhite
+# White Paper
 
-Simplistic jekyll portfolio-style theme for writers.
+**White Paper** is a theme for Jekyll. It is made keeping content in focus and is best for writers/developers who also like to share code with their essays.
 
-**Demo**: [samarsault.com](https://samarsault.com)
+## Create blog posts
 
-![plainwhite theme preview](/screenshot.png)
+`jekyll-compose` gem is now installed with jekyll so now creating a new post is as easy as running this simple command
 
-## Installation on Github Pages
-
-Add this line to your site's `_config.yml`:
-
-```yaml
-remote_theme: samarsault/plainwhite-jekyll
 ```
+# ensure all the required bundles are installed
+bundle install
+bundle exec jekyll post "Tooling Considered Harmful"
+
+Configuration file: /Users/vinitkumar/projects/vinitkumar.github.com/_config.yml
+New post created at _posts/2019-03-06-tooling-considered-harmful.md
+
+$ git status
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  _posts/2019-03-06-tooling-considered-harmful.md
+```
+
+## White Paper in Action
+
+#### Blog Page
+
+![home](./listview.png)
+
+#### Detail Page
+
+![post detail](./detailview.png)
+
+#### About Page
+
+![about](./about.png)
+
+
+## How to use White Paper
+
+Fork the repo to your account by clicking the button on the top right as shown in the image:
+
+![fork](https://cldup.com/vOF0oaUkh5-3000x3000.png) and then where you want to fork it as shown below.
+
+Next, Go the the project settings and change the repository name to `<username>.github.io` where username is your username.
+
+Change these entries in the `_config.yml` file:
+
+Also, change this line in head.html [link](https://github.com/vinitkumar/white-paper/blob/9ad021a8f94c6240351bd57eda301b5f207e554e/_includes/head.html#L28)
+
+```html
+<!-- From this -->
+<link rel="stylesheet" href=" {{ '/css/main.min.css' | relative_url }}" type="text/css" />
+<!-- To this -->
+<link rel="stylesheet" href=" {{ '/css/main.min.css' | absolute_url }}" type="text/css" />
+
+```
+
+
+This will make sure that the path of CSS is correct and the theme loads correctly.
+
+```yml
+master_repo: false
+url: "<username>.github.io"
+rtl: false  # change to true if posts is in Arabic/other Right to left language.
+```
+Also, change all other fields in the `_config.yml` file to your choice.
 
 ## Installation
 
-Add this line to your Jekyll site's `Gemfile`:
+### Local Development
 
-```ruby
-gem "plainwhite"
+This theme requires you to install couple of tools first to setup jekyll locally.
+
+```$
+git clone git@github.com:vinitkumar/white-paper.git
+
+# If you have ruby installed.
+gem install jekyll bundler
+
+# If you have node installed.
+npm install
+sudo npm install -g grunt-cli  #to get the task runner for grunt.
+bundle install
+jekyll serve
+
+# on running the serve script, the site will be live on
+http://127.0.0.1:4000
+```
+This theme uses grunt to concat & minify the css for best performance. In order to prepare the css build. Run `grunt`
+It will create a main.min.css file in the css folder.
+
+### Switch Syntax Highlighting.
+
+This theme also provides syntax highlighting in different theme. Inside css folder, there is a syntax folder.
+
+```$
+.
+├── emacs.css
+├── github.css
+├── monokai.css
+├── native.css
+├── syntax.css
+└── vim.css
+
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+Now in the gruntfiles.js
 
-```yaml
-theme: plainwhite
+```js
+concat: {
+  dist: {
+    src: [
+      'css/base.css',
+      'css/sytax/emacs.css', // change this to another theme if you prefer, like vim.css and run grunt
+      'css/octicons.css'
+    ],
+    dest: 'css/<%= pkg.name %>.add.css'
+  }
+}
 ```
 
-And then execute:
+## Contributors
 
-    $ bundle
+### Code Contributors
 
-Or install it yourself as:
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/vinitkumar/white-paper/graphs/contributors"><img src="https://opencollective.com/whitepaper/contributors.svg?width=890&button=false" /></a>
 
-    $ gem install plainwhite
+### Financial Contributors
 
-## Usage
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/whitepaper/contribute)]
 
-The "plainwhite" key in \_config.yml is used to customize the theme data.
+#### Individuals
 
-```yaml
-plainwhite:
-  name: Adam Denisov
-  tagline: Developer. Designer
-  date_format: "%b %-d, %Y"
+<a href="https://opencollective.com/whitepaper"><img src="https://opencollective.com/whitepaper/individuals.svg?width=890"></a>
 
-  social_links:
-    twitter: samarsault
-    github: samarsault
-    linkedIn: in/samarsault # format: locale/username
-```
+#### Organizations
 
-**Updating Placeholder Image**
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/whitepaper/contribute)]
 
-The placeholder portfolio image can be replaced by the desired image by placing it as `assets/portfolio.png` in your jekyll website, or by changing the following line in `_config.yaml`
-
-```yaml
-plainwhite:
-  portfolio_image:  "assets/portfolio.png" # the path from the base directory of the site to the image to display (no / at the start)
-```
-
-To use a different image for dark mode, e.g. with different colors that work better in dark mode, add a `portfolio_image_dark` entry in addition to the `portfolio_image`.
-
-```yaml
-plainwhite:
-  portfolio_image:      "assets/portfolio.png"
-  portfolio_image_dark: "assets/portfolio_dark.png"
-```
-
-**Comments (Disqus)**
-
-Comments on posts can be enabled by specifying your disqus_shortname under plainwhite in `_config.yml`. For example,
-
-```yaml
-plainwhite:
-  disqus_shortname: games
-```
-
-**Google Analytics**
-
-It can be enabled by specifying your analytics id under plainwhite in `_config.yml`
-
-```yaml
-plainwhite:
-  analytics_id: "< YOUR ID >"
-```
-
-**Sitemap**
-
-It can be toggled by the following line to under plainwhite in `_config.yml`
-
-```yaml
-plainwhite:
-  sitemap: true
-```
-
-**Excerpts**
-
-Excerpts can be enabled by adding the following line to your `_config.yml`
-
-```yaml
-show_excerpts: true
-```
-
-**Layouts**
-
-- Home
-- Page
-- Post
-
-**Navigation**
-
-Navigation can be enabled by adding the following line to your `_config.yml`
-
-```yaml
-plainwhite:
-  navigation:
-    - title: My Work
-      url: "/my-work"
-    - title: Resume
-      url: "/resume"
-```
-
-**Mobile**
-
-By default, Plainwhite places the sidebar (logo, name, tagline etc.) above the content on mobile (narrow screens).
-To condense it (moving some things to the bottom of the page and making the rest smaller) so it takes up less space, add the following to your `_config.yml`:
-
-```yaml
-plainwhite:
-  condensed_mobile:
-    - home
-    - post
-    - page
-```
-
-This chooses which layouts (types of page) should be condensed on mobile screens. E.g. if you want everything but the landing page to be condensed, remove `home` from the list. This option does not affect rendering on wider screens.
-
-**Dark mode**
-
-Dark mode can be enabled by setting the `dark_mode` flag in your `_config.yml`
-
-The website will check the OS preferred color scheme and set the theme accordingly, the preference will then be saved in a cookie
-
-```yaml
-plainwhite:
-  dark_mode: true
-```
-
-![plainwhite dark theme previe](/dark.png)
-
-**Multiline tagline**
-
-Tagline can be multiline in this way
-
-```yaml
-plainwhite:
-  tagline: |
-  First Line. 
-
-  Second Line. 
-
-  Third Line.
-```
-
-**Search-bar**
-
-Search-bar can be enabled by adding the following line to `config.yml`
-
-```yaml
-plainwhite:
-  search: true
-```
-
-Search is powered by [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search) Jekyll plugin. A `search.json` containing post meta and contents will be generated in site root folder. Plugin JavaScript will then match for posts based on user input. More info and `search.json` customization documentation can be found in plugin repository.
-
-**Base URL**
-
-You can specify a custom base URL (eg. example.com/blog/) by adding the following line to `_config.yaml`. Note that there is no trailing slash on the URL.
-
-```yaml
-baseurl: "/blog"
-```
-
-**Language**
-
-You can set the `lang` attribute of the `<html>` tag on your pages by changing the following line in `_config.yml`:
-
-```yaml
-plainwhite:
-  html_lang: "en"
-```
-
-[See here for a full list of available language codes](https://www.w3schools.com/tags/ref_country_codes.asp)
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/samarsault/plainwhite-jekyll. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `plainwhite.gemspec` accordingly.
-
-## Donation
-If this project help you reduce time to develop, you can give me a cup of coffee :) 
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/thelehhman)
+<a href="https://opencollective.com/whitepaper/organization/0/website"><img src="https://opencollective.com/whitepaper/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/1/website"><img src="https://opencollective.com/whitepaper/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/2/website"><img src="https://opencollective.com/whitepaper/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/3/website"><img src="https://opencollective.com/whitepaper/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/4/website"><img src="https://opencollective.com/whitepaper/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/5/website"><img src="https://opencollective.com/whitepaper/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/6/website"><img src="https://opencollective.com/whitepaper/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/7/website"><img src="https://opencollective.com/whitepaper/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/8/website"><img src="https://opencollective.com/whitepaper/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/whitepaper/organization/9/website"><img src="https://opencollective.com/whitepaper/organization/9/avatar.svg"></a>
 
 ## License
+* see [LICENSE](https://github.com/vinitkumar/white-paper/blob/gh-pages/LICENSE) file
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## More themes
+## Version
+* Version 5.0.0
 
-- [Texture](https://github.com/samarsault/texture)
+## Contact
+#### Developer
+
+* Homepage: http://vinitkumar.me
+* e-mail: mail@vinitkumar.me
+* Twitter: [@vinitkme](https://twitter.com/vinitkme "vinitkme on twitter")
