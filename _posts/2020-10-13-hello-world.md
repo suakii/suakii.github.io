@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Hello World!"
+category: articles
+tags: [java, python]
 ---
 
 {% highlight python %}
