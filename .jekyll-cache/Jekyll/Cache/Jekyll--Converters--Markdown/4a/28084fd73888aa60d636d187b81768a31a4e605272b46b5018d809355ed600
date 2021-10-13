@@ -1,0 +1,10 @@
+I"�<p>Welcome to <a href="https://github.com/aterenin/minima-reboot">Minima Reboot</a>, a Bootstrap-based rewrite of <a href="https://github.com/jekyll/minima">Minima</a>, the base Jekyll theme. Check out the responsive navigation menu and footer by changing your browser’s width. This is a post in the <code class="language-plaintext highlighter-rouge">_posts</code> directory. You can view Minima Reboot’s source on <a href="https://github.com/aterenin/minima-reboot">GitHub</a>. Minima Reboot inherits Jekyll’s support for code highlighting, as shown below.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://github.com/aterenin/minima-reboot">GitHub repository</a> for more info.</p>
+:ET
