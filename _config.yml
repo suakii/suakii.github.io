@@ -18,6 +18,10 @@ header_pages:
 - posts.md
 - github.md
 
+disqus:
+  shortname: suakii
+
+
 footer_icons:
 
 paginate: 5
