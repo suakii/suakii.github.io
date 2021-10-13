@@ -2,7 +2,6 @@
 layout: allposts
 title: Tags
 description: "An archive of posts sorted by tag."
-permalink: /posts/
 ---
 
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
