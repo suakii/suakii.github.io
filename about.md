@@ -4,7 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Father, Teacher,.....
-박종화
+Father, Teacher
 
 
