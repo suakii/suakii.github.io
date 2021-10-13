@@ -17,7 +17,6 @@ header_pages:
 - about.md
 - posts.md
 - tags.md
-- github.md
 
 disqus:
   shortname: suakii
