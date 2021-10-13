@@ -21,9 +21,6 @@ header_pages:
 disqus:
   shortname: suakii
 
-
-footer_icons:
-
 paginate: 5
 
 markdown: kramdown
