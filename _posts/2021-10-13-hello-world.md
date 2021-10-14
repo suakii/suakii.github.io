@@ -7,11 +7,11 @@ use_math: true
 
 ---
 
-```python
+{% highlight python %}
 def hello():
   print("Hello World")
 
 if __name__ == "__main__":
   hello()
-```
 
+{% endhighlight %}
