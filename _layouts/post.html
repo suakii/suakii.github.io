@@ -22,9 +22,9 @@ layout: default
       </time>
       
         {% if page.tags %}
-          {% for tag in page.tags %}
-            <span class="tag">{{ tag }}</span>
-          {% endfor %}
+          [{% for tag in page.tags %}
+          <a href="/tags/#{{ tag | escape }}">{{tag}}</a>
+          {% endfor %}]
         {% endif %}
       
     </p>
