@@ -9,17 +9,9 @@ use_math: true
 
 {% highlight python %}
 def hello():
-  print("Hello")
+  print("Hello World")
 
-hello()
+if __name__ == "__main__":
+  hello()
 
 {% endhighlight %}
-
-
-$f(x) = x^2$
-
-$$
-  \lim_{x\to 0}{\frac{e^x-1}{2x}}
-  \overset{\left[\frac{0}{0}\right]}{\underset{\mathrm{H}}{=}}
-  \lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}
-$$
