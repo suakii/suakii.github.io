@@ -25,6 +25,8 @@ paginate: 5
 
 markdown: kramdown
 
+
+
 exclude:
   - Gemfile
   - Gemfile.lock
