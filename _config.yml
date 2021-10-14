@@ -25,6 +25,7 @@ paginate: 5
 
 markdown: kramdown
 
+google_analytics: G-NFMQHCBNGG
 
 
 exclude:
