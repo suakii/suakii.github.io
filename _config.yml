@@ -3,6 +3,10 @@ author: Jonghwa Park
 email: suakii@gmail.com
 description: >
 
+excerpt_separator: <!--more-->
+
+
+
 plugins:
   - jekyll-seo-tag
   - jekyll-paginate
@@ -26,8 +30,6 @@ paginate: 5
 
 markdown: kramdown
 highlighter: rouge
-kramdown:
-  input: GFM
 
 google_analytics: G-NFMQHCBNGG
 

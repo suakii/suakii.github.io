@@ -4,9 +4,7 @@ title: "Hello World!"
 category: articles
 tags: [python]
 use_math: true
-
 ---
-
 ```python
 def hello():
   print("Hello World")
@@ -14,3 +12,4 @@ def hello():
 if __name__ == "__main__":
   hello()
 ```
+<!--more-->
